@@ -12,3 +12,8 @@ explore: predict_machine_failure_predictions {
     relationship: one_to_many
   }
 }
+
+
+explore: predictive_maintenance_demo {
+  hidden: yes
+}
