@@ -142,13 +142,25 @@ view: customer_satisfaction {
   measure: count_satisfied {
     type: count
     filters: [satisfaction: "satisfied"]
-
   }
 
-  measure: pct_satisfied {
+  measure: percent_satisfied {
     type: number
     sql: ${count_satisfied}/${count} ;;
     value_format_name: percent_1
+  }
+
+  measure: average_arrival_delay {
+    description: "Average arrival delay in minutes"
+    type: average
+    sql: ${arrival_delay_in_minutes} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: average_flight_distance {
+    type: average
+    sql: ${flight_distance} ;;
+    value_format_name: decimal_0
   }
 
   set: detail {
