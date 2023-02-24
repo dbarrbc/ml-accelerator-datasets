@@ -2,7 +2,7 @@ connection: "ml_accelerator"
 label: "Public Datasets for ML Accelerator"
 
 persist_for: "24 hours"
-
+#a new comment
 #my comment
 
 include: "/explores/census_adult_income.explore.lkml"
