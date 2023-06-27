@@ -4,7 +4,11 @@ view: purchase_propensity {
         fullVisitorId,
         bounces,
         time_on_site,
-        will_buy_on_return_visit
+        will_buy_on_return_visit,
+        CASE
+            WHEN FARM_FINGERPRINT(fullVisitorId) < 4602018618904989184 THEN 'train'
+            ELSE 'predict'
+          END as data_frame
       FROM (
             SELECT
               fullVisitorId,
@@ -55,6 +59,11 @@ view: purchase_propensity {
   dimension: will_buy_on_return_visit {
     type: number
     sql: ${TABLE}.will_buy_on_return_visit ;;
+  }
+
+  dimension: data_frame {
+    type: string
+    sql: ${TABLE}.data_frame ;;
   }
 
   measure: count {
