@@ -34,7 +34,9 @@ view: iowa_liquor_sales_evaluation {
     sql: ${aic} ;;  }
   measure: average_aic {
     type: average
-    sql: ${aic} ;;  }
+    sql: ${aic} ;;
+    value_format_name:decimal_0
+    }
 
   dimension: has_drift {
     type: yesno
@@ -69,6 +71,7 @@ view: iowa_liquor_sales_evaluation {
   measure: avg_log_likelihood {
     type: average
     sql: ${log_likelihood} ;;
+    value_format_name:decimal_0
   }
 
   dimension: modelname {
