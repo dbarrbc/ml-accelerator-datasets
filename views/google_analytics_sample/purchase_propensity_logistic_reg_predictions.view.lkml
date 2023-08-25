@@ -120,6 +120,7 @@ view: purchase_propensity_logistic_reg_predictions__predicted_will_buy_on_return
   dimension: label {
     type: number
     sql: label ;;
+    value_format_name: percent_2
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -139,6 +140,7 @@ view: purchase_propensity_logistic_reg_predictions__predicted_will_buy_on_return
   dimension: prob {
     type: number
     sql: prob ;;
+    value_format_name: percent_2
   }
 
   # This field is hidden, which means it will not show up in Explore.

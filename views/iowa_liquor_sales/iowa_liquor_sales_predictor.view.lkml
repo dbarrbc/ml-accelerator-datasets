@@ -2,7 +2,20 @@
 view: iowa_liquor_sales_predictor {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: `ml-accelerator-dbarr.looker_bqml.iowa_liquor_sales_predictor` ;;
+ # sql_table_name: `ml-accelerator-dbarr.looker_bqml.iowa_liquor_sales_predictor` ;;
+  derived_table: {
+    sql:
+    SELECT
+      *
+    FROM
+      ML.FORECAST(MODEL looker_bqml.iowa_liquor_sales_model,
+                  STRUCT(30 AS horizon,
+                         .90 AS confidence_level)
+                 )
+    ;;
+  }
+
+
 
   dimension: composite_key {
     primary_key: yes
